@@ -267,6 +267,7 @@ For more details see:
   (let* ((patterns (split-string helm-pattern))
 	 (option (helm-aand (member (car patterns) '("-q" "-f" "-a" "-o"))
 			    (car it)))
+	 (pattern-seq (if option (cdr patterns) patterns)))
     (append (if option
 		(helm-append-at-nth helm-recoll-options (list option) 1)
 	      helm-recoll-options)
