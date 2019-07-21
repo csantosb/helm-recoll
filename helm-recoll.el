@@ -268,9 +268,9 @@ For more details see:
 	 (option (helm-aand (member (car patterns) '("-q" "-f" "-a" "-o"))
 			    (car it)))
     (append (if option
-                (helm-append-at-nth helm-recoll-options (list option) 1)
-              helm-recoll-options)
-            (list "-c" dir) (cons "-q" pattern-seq))))
+		(helm-append-at-nth helm-recoll-options (list option) 1)
+	      helm-recoll-options)
+	    (list "-c" dir) pattern-seq)))
 
 (defun helm-recoll--candidates-process (&optional confdir)
   "Candidates function used by `helm-recoll-source'."
