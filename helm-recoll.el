@@ -114,7 +114,7 @@ config directory can be passed as a argument to `helm-recoll-create-source'."
 
 Enter one of the following options before your query to specify the query type:
 
--l      advanced search query (default, see next section)
+-q      advanced search query (default, see next section)
 -f      (exact) file name search query
 -a      all words search query (matches if document contains all the words)
 -o      any words search query (matches if document contains any of the words)
@@ -265,9 +265,8 @@ For more details see:
 
 (defun helm-recoll--setup-cmd (dir)
   (let* ((patterns (split-string helm-pattern))
-         (option (helm-aand (member (car patterns) '("-l" "-f" "-a" "-o"))
-                            (car it)))
-         (pattern-seq (if option (cdr patterns) patterns)))
+	 (option (helm-aand (member (car patterns) '("-q" "-f" "-a" "-o"))
+			    (car it)))
     (append (if option
                 (helm-append-at-nth helm-recoll-options (list option) 1)
               helm-recoll-options)
